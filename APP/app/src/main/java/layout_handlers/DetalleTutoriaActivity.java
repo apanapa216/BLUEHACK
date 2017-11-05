@@ -13,6 +13,8 @@ import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
+import com.jorgemoreno971.segurobolivarapp.R;
+
 import dan_art.sknowcoin.R;
 import dan_art.sknowcoin.modelo.Reporte;
 import dan_art.sknowcoin.modelo.SKnowCoinApp;

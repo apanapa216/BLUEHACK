@@ -12,8 +12,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
 
+import com.jorgemoreno971.segurobolivarapp.R;
+
 import java.util.ArrayList;
 
+import Model.Plain;
+import Model.User;
 import dan_art.sknowcoin.R;
 import dan_art.sknowcoin.modelo.SKnowCoinApp;
 import dan_art.sknowcoin.modelo.Tutoria;
@@ -29,11 +33,11 @@ public class HomeActivity extends AppCompatActivity
 
     private static final String TAG = "MyHome";
 
-    private ArrayList<Tutoria> tutoriasDisponibles = new ArrayList<>();
+    private ArrayList<Plain> tutoriasDisponibles = new ArrayList<>();
 
     private AdaptadorTutoriaDisponible adaptadorTutorias;
     private ListView listaTutorias;
-    private SKnowCoinApp sKnowCoinApp;
+    private User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -185,11 +189,11 @@ public class HomeActivity extends AppCompatActivity
         return true;
     }
 
-    public ArrayList<Tutoria> getTutoriasDisponibles() {
+    public ArrayList<Plain> getTutoriasDisponibles() {
         return tutoriasDisponibles;
     }
 
-    public void setTutoriasDisponibles(ArrayList<Tutoria> tutoriasDisponibles) {
+    public void setTutoriasDisponibles(ArrayList<Plain> tutoriasDisponibles) {
         this.tutoriasDisponibles = tutoriasDisponibles;
     }
 

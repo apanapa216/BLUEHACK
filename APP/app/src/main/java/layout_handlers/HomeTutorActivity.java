@@ -1,10 +1,9 @@
-package dan_art.sknowcoin.layout_handlers;
+package Layout_Handlers;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -14,11 +13,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
 
+import com.jorgemoreno971.segurobolivarapp.R;
+
 import java.util.ArrayList;
 
-import dan_art.sknowcoin.R;
-import dan_art.sknowcoin.modelo.SKnowCoinApp;
-import dan_art.sknowcoin.modelo.Tutoria;
+import Model.Plain;
 
 
 /**
@@ -32,14 +31,13 @@ public class HomeTutorActivity extends AppCompatActivity
 
     private static final String TAG = "TutorHome";
 
-    private ArrayList<Tutoria> itemsHomeTutor = new ArrayList<>();
+    private ArrayList<Plain> itemsHomeTutor = new ArrayList<>();
 
     private AdaptadorHomeTutor adaptadorTutorias;
     private ListView listaTutorias;
 
     private SharedPreferences preferences;
 
-    private SKnowCoinApp sKnowCoinApp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -109,8 +107,8 @@ public class HomeTutorActivity extends AppCompatActivity
 
         //list_view_content();
 
-        sKnowCoinApp=new SKnowCoinApp();
-        sKnowCoinApp.totalTutoriasIdTutor(this,preferences.getString("codigo_usuario","000"));
+//        sKnowCoinApp=new SKnowCoinApp();
+  //      sKnowCoinApp.totalTutoriasIdTutor(this,preferences.getString("codigo_usuario","000"));
 
     }// on create
 
@@ -158,8 +156,8 @@ public class HomeTutorActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_sol) {
-            Intent intent = new Intent(this, AreasConocimientoActivity.class);
-            startActivity(intent);
+//            Intent intent = new Intent(this, AreasConocimientoActivity.class);
+ //           startActivity(intent);
         }
 
         return super.onOptionsItemSelected(item);
@@ -199,7 +197,7 @@ public class HomeTutorActivity extends AppCompatActivity
         return true;
     }
 
-    public ArrayList<Tutoria> getItemsHomeTutor() {
+    public ArrayList<Plain> getItemsHomeTutor() {
         return itemsHomeTutor;
     }
 

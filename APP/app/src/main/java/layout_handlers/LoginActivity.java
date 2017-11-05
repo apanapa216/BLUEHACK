@@ -17,6 +17,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
+import com.jorgemoreno971.segurobolivarapp.R;
 
 import dan_art.sknowcoin.Firebase.Autenticacion;
 import dan_art.sknowcoin.Firebase.ConexionFirebase;
@@ -72,81 +73,6 @@ public class LoginActivity extends AppCompatActivity {
         final String elCorreo = correo.getText().toString();
         String laContrasena = contrasena.getText().toString();
 
-        if ((!isEmpty(correo)) && (!isEmpty(contrasena))) {
-            Usuario seguir = null;
-
-            if (!elCorreo.trim().matches("") && !laContrasena.trim().matches("")) {
-
-                final Autenticacion autenticacion = new Autenticacion(this);
-
-                autenticacion.getmAuth().signInWithEmailAndPassword(elCorreo, laContrasena).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-
-                        if (task.isSuccessful()) {
-
-                            ConexionFirebase conexionFirebase = new ConexionFirebase();
-
-                            conexionFirebase.getDatabaseReference().child(conexionFirebase.USUARIOS_REFERENCE).orderByChild("correo").equalTo(elCorreo).addValueEventListener(new ValueEventListener() {
-
-                                @Override
-                                public void onDataChange(DataSnapshot dataSnapshot) {
-
-                                    Usuario usuario1 = null;
-                                    for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
-                                        usuario1 = postSnapshot.getValue(Usuario.class);
-                                    }
-
-
-                                    SharedPreferences.Editor editor = prefs.edit();
-                                    editor.putString("codigo_usuario",usuario1.getCodigo());
-                                    editor.putString("nombre_usuario", usuario1.getNombre());
-                                    editor.commit();
-
-                                }
-
-                                @Override
-                                public void onCancelled(DatabaseError databaseError) {
-                                }
-                            });
-
-                        } else {
-
-                            Toast.makeText(autenticacion.context, task.getException().getMessage(), Toast.LENGTH_LONG).show();
-
-                        }
-                    }
-                });
-
-                autenticacion.getmAuth().signOut();
-
-                Intent intent = new Intent(this, HomeActivity.class);
-                intent.putExtra("materia","home");
-                startActivity(intent);
-
-            } else {
-                mostrarToast("Correo o contraseña incorrecta");
-            }// se pudo establecer conexion
-
-            if (seguir != null) {
-
-                preferences = getSharedPreferences(USUARIO_PREFERENCES, Context.MODE_PRIVATE);
-                SharedPreferences.Editor editor = preferences.edit();
-
-                editor.putString("codigo", seguir.getCodigo());
-
-                editor.commit();
-
-                Toast.makeText(this, "entro", Toast.LENGTH_LONG).show();
-
-                Intent intent = new Intent(this, HomeActivity.class);
-                intent.putExtra("materia","home");
-                startActivity(intent);
-            }
-        } else {
-            mostrarToast("No has ingresado tus datos");
-        }// no ha llenado los datos
-
     }// click login
 
     private boolean isEmpty(EditText etText) {
@@ -161,8 +87,8 @@ public class LoginActivity extends AppCompatActivity {
     }// mostrar toast
 
     public void iniciarRegistro(View v) {
-        Intent intent = new Intent(this, SingUpActivity_uno.class);
-        startActivity(intent);
+       // Intent intent = new Intent(this, SingUpActivity_uno.class);
+       // startActivity(intent);
     }// click Registro
 
     @Override
