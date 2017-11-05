@@ -99,4 +99,17 @@ public class User {
 
         }
     }
+
+    public String getNombre(){
+        return nombre;
+    }
+
+    public java.lang.String getApellido() {
+        return apellido;
+    }
+
+    public double getPuntaje() {
+        return puntaje;
+    }
+
 }

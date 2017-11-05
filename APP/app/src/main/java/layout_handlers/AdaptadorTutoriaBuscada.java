@@ -1,4 +1,4 @@
-package dan_art.sknowcoin.layout_handlers;
+package Layout_Handlers;
 
 import android.app.Activity;
 import android.content.Context;
@@ -11,17 +11,14 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.jorgemoreno971.segurobolivarapp.R;
+
 import java.util.ArrayList;
 
-import dan_art.sknowcoin.R;
-import dan_art.sknowcoin.modelo.Tutoria;
-import dan_art.sknowcoin.modelo.Usuario;
+import Model.User;
 
-/**
- * Created by Luisf0425 on 26/05/17.
- */
 
-public class AdaptadorTutoriaBuscada extends ArrayAdapter<Usuario> {
+public class AdaptadorTutoriaBuscada extends ArrayAdapter<User> {
 
     Activity activity;
     Context context;
@@ -29,7 +26,7 @@ public class AdaptadorTutoriaBuscada extends ArrayAdapter<Usuario> {
 
     private static final String TAG = "MyTutorSerch";
 
-    public AdaptadorTutoriaBuscada(Context context, ArrayList<Usuario> tutorias, Activity activity) {
+    public AdaptadorTutoriaBuscada(Context context, ArrayList<User> tutorias, Activity activity) {
         super(context, 0, tutorias);
         this.activity = activity;
         this.context=context;
@@ -38,7 +35,7 @@ public class AdaptadorTutoriaBuscada extends ArrayAdapter<Usuario> {
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
         // Get the data item for this position
-        final Usuario tutor = getItem(position);
+        final User tutor = getItem(position);
         index = position;
 
         // Check if an existing view is being reused, otherwise inflate the view
@@ -57,10 +54,10 @@ public class AdaptadorTutoriaBuscada extends ArrayAdapter<Usuario> {
             @Override
             public void onClick(View v) {
                 //mostrarToast("Vista Previa " + position);
-                Intent intent = new Intent(getContext(), HomeActivity.class);
-                intent.putExtra("materia",tutor.getNombre());
-                intent.putExtra("char",'a');
-                getContext().startActivity(intent);
+                //Intent intent = new Intent(getContext(), HomeActivity.class);
+                //intent.putExtra("materia",tutor.getNombre());
+                //intent.putExtra("char",'a');
+                //getContext().startActivity(intent);
             }
         });
         // Return the completed view to render on screen

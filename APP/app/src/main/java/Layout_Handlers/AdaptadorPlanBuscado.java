@@ -13,11 +13,11 @@ import android.widget.Toast;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
+import com.jorgemoreno971.segurobolivarapp.R;
+
 import java.util.ArrayList;
 
 import Model.Plain;
-import dan_art.sknowcoin.R;
-import dan_art.sknowcoin.modelo.Tutoria;
 
 /**
  * Created by dan_a on 17/05/2017.
