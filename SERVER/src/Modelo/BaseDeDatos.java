@@ -14,11 +14,11 @@ public class BaseDeDatos {
 	private final static int PORT = 3306;
 
 	public void conexion() throws SQLException, ClassNotFoundException {
-		conexion = null;
+		con = null;
 		
 		try {
 			Class.forName("com.mysql.jdbc.Driver").newInstance();
-			conexion = DriverManager.getConnection("jdbc:mysql://" + HOST + ":" + PORT + "/" + NAME_BDD, USER,
+			con = DriverManager.getConnection("jdbc:mysql://" + HOST + ":" + PORT + "/" + NAME_BDD, USER,
 					PASSWORD);
 		} catch (SQLException e) {
 			System.out.println("No se puede conectar a la base de datos: " + e.getMessage());
@@ -41,5 +41,65 @@ public class BaseDeDatos {
 			conexion.close();
 		}
 	}
+
+
+	public String consultaMensajes(){	
+		Statement stmt=con.createStatement();
+		stmt.executeQuery("Select descripcion from MensajeTipsSemanal where idMensajeTipsSemanal==1;");
+		con.close();
+	}
+
+	public String eventos(){
+	Statement stmt=con.createStatement();
+	stmt.executeQuery(
+			"Select fecha,descripcion from evento where id==1;"
+			);
+			con.close();
+
+	}
+
+
+	public String profesor(){
+
+
+	Statement stmt=con.createStatement();
+	stmt.executeQuery(
+			"Select nombres,apellidos from Profesor where cedula==234247;"
+			);
+			con.close();
+
+	}
+
+	public String pregunta(){
+
+	Statement stmt=con.createStatement();
+	stmt.executeQuery(
+			" Select pregunta from PreguntaJuego
+	where idPreguntaJuego==1;"
+			);
+			con.close();
+	}
+
+	public String familiar(){
+
+	Statement stmt=con.createStatement();
+	stmt.executeQuery(
+			"Select familiar.nombres,familiar.apellidos, profesor.nombres,profesor.apellidos from Profesor, Familiar
+	where familiar.cedula==480933;"
+			);
+			con.close();
+
+	}
+
+	public String nombrePlan(){
+	Statement stmt=con.createStatement();
+	stmt.executeQuery(
+			"Select nombrePlan from Plan
+	where idPlan==1;"
+			);
+			con.close();
+
+	}
+
 
 }
