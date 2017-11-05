@@ -6,6 +6,7 @@ import java.net.SocketAddress;
 import java.nio.Buffer;
 
 import Modelo.BaseDeDatos;
+import Modelo.SW;
 
 public class Ejecutable {
 
@@ -14,11 +15,15 @@ public class Ejecutable {
 	private static DatagramSocket socket;
 	private static int SIZE_BUFFER = 1000000;
 	private static byte buffer[];
-		
+	private static SW model;
+
 	public static void main(String args[]) throws Exception {
 
 		socket = new DatagramSocket(PORT);
 		socket.setSoTimeout(TIME);
+
+		model = new SW();
+
 		while (true) {
 
 			try {
@@ -29,7 +34,7 @@ public class Ejecutable {
 				(new ThreadAttend(packet.getSocketAddress(), msj)).start();
 
 			} catch (Exception e) {
-				e.printStackTrace();
+				// e.printStackTrace();
 			}
 		}
 	}

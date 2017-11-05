@@ -11,16 +11,14 @@ public class SW {
 		planes = new ArrayList<>();
 		try {
 			bbd = new BaseDeDatos();
-
+			bbd.conexion();
 		} catch (Exception e) {
-
+			e.printStackTrace();
 		}
 	}
 
 	public String analisis(Profesor profesor) {
 		return "";
 	}
-	
-
 
 }
