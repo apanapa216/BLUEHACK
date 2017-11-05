@@ -1,10 +1,16 @@
 package Model;
 
+import android.util.Log;
+
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 /**
@@ -24,7 +30,7 @@ public class User {
     private final static String ROUTE_EVENTS = "./data/events.txt";
     private final static String ROUTE_BACKUP = "./data/back.txt";
 
-    public User() throws Exception{
+    public User() throws Exception {
 
         BufferedReader in = new BufferedReader(new FileReader(new File(ROUTE_BACKUP)));
         nombre = in.readLine();
@@ -35,28 +41,48 @@ public class User {
 
         try {
             planes = (ArrayList<Plain>) ois.readObject();
-        }catch (Exception e){
+        } catch (Exception e) {
 
         }
         try {
             ois = new ObjectInputStream(new FileInputStream(new File(ROUTE_EVENTS)));
             eventos = (ArrayList<Event>) ois.readObject();
 
-        }catch (Exception e){
+        } catch (Exception e) {
 
         }
         ois.close();
         in.close();
     }
 
-    public User(String nombre, String apellido, double puntaje){
+    public User(String nombre, String apellido, double puntaje) {
+
         this.nombre = nombre;
         this.apellido = apellido;
         this.puntaje = puntaje;
         planes = new ArrayList<>();
         eventos = new ArrayList<>();
+        write();
     }
 
+    public void write() {
 
+        try {
+            BufferedWriter out = new BufferedWriter(new FileWriter(new File(ROUTE_BACKUP)));
+            out.write(nombre + "\n" + apellido + "\n" + puntaje + "\n");
+            out.close();
 
+            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(new File(ROUTE_EVENTS)));
+            oos.writeObject(eventos);
+            oos.close();
+
+            oos = new ObjectOutputStream(new FileOutputStream(new File(ROUTE_PLANS)));
+            oos.writeObject(planes);
+            oos.close();
+
+        } catch (Exception e) {
+            Log.e("ERROR", "SAVE THE INFORMATION");
+
+        }
+    }
 }
