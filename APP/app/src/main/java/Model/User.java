@@ -55,7 +55,7 @@ public class User {
         }
         try {
             ois = new ObjectInputStream(new FileInputStream(new File(ROUTE_PARENTS)));
-            familiares = (ArrayList<Event>) ois.readObject();
+            familiares = (ArrayList<Parent>) ois.readObject();
 
         } catch (Exception e) {
 
@@ -91,7 +91,7 @@ public class User {
             oos.close();
 
             oos = new ObjectOutputStream(new FileOutputStream(new File(ROUTE_PARENTS)));
-            oos.writeObject(parents);
+            oos.writeObject(familiares);
             oos.close();
 
         } catch (Exception e) {
