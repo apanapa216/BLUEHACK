@@ -2,58 +2,62 @@ package Control;
 
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
+import java.net.SocketAddress;
 import java.nio.Buffer;
 
-/**
- * 
- * @author Jorge Andres Morenno Mera
- *
- */
+import Modelo.BaseDeDatos;
+
 public class Ejecutable {
 
-	/**
-	 * 
-	 */
-	private final static int PUERTO = 5859;
+	private final static int TIME = 10000;
+	private final static int PORT = 5655;
+	private static DatagramSocket socket;
+	private static int SIZE_BUFFER = 1000000;
+	private static byte buffer[];
+		
+	public static void main(String args[]) throws Exception {
 
-	/**
-	 * 
-	 */
-	private static DatagramSocket servidor;
+		socket = new DatagramSocket(PORT);
+		socket.setSoTimeout(TIME);
+		while (true) {
 
-	/**
-	 * 
-	 */
-	private static boolean escuchar = true;
-
-	/**
-	 * 
-	 */
-	private static byte[] buffer;
-
-	/**
-	 * 
-	 */
-	private static DatagramPacket paquete;
-
-	/**
-	 * 
-	 * @param args
-	 * @throws Exception
-	 */
-	public static void main(String[] args) throws Exception {
-		buffer = new byte[Integer.MAX_VALUE / 100000];
-		servidor = new DatagramSocket(PUERTO);
-		paquete = new DatagramPacket(buffer, buffer.length);
-		while (escuchar) {
 			try {
-				servidor.receive(paquete);
-				String peticion = new String(paquete.getData());
-				//aqui toda la parte logica de la peticion
-				
+				buffer = new byte[SIZE_BUFFER];
+				DatagramPacket packet = new DatagramPacket(buffer, SIZE_BUFFER);
+				socket.receive(packet);
+				String msj = new String(buffer);
+				(new ThreadAttend(packet.getSocketAddress(), msj)).start();
+
 			} catch (Exception e) {
-				// TODO: handle exception
+				e.printStackTrace();
 			}
 		}
 	}
+
+	private static class ThreadAttend extends Thread {
+
+		private SocketAddress client;
+		private String question;
+
+		ThreadAttend(SocketAddress client, String question) {
+			this.client = client;
+			this.question = question;
+		}
+
+		public void run() {
+			try {
+				// Protocol
+				if (question.equals("Protocol")) {
+					byte[] buff = ("HOLI SERVER").getBytes();
+					DatagramPacket send = new DatagramPacket(buff, buff.length, client);
+					socket.send(send);
+				} else {
+
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
 }
