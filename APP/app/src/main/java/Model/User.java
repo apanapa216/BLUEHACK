@@ -23,10 +23,12 @@ public class User {
     private String apellido;
     private ArrayList<Plain> planes;
     private ArrayList<Event> eventos;
+    private ArrayList<Parent> familiares;
     private double puntaje;
 
     private final static String ROUTE_IMAGE = "./data/images.txt";
     private final static String ROUTE_PLANS = "./data/plans.tx";
+    private final static String ROUTE_PARENTS = "./data/parents.tx";
     private final static String ROUTE_EVENTS = "./data/events.txt";
     private final static String ROUTE_BACKUP = "./data/back.txt";
 
@@ -51,6 +53,13 @@ public class User {
         } catch (Exception e) {
 
         }
+        try {
+            ois = new ObjectInputStream(new FileInputStream(new File(ROUTE_PARENTS)));
+            familiares = (ArrayList<Event>) ois.readObject();
+
+        } catch (Exception e) {
+
+        }
         ois.close();
         in.close();
     }
@@ -62,6 +71,7 @@ public class User {
         this.puntaje = puntaje;
         planes = new ArrayList<>();
         eventos = new ArrayList<>();
+        familiares = new ArrayList<>();
         write();
     }
 
@@ -78,6 +88,10 @@ public class User {
 
             oos = new ObjectOutputStream(new FileOutputStream(new File(ROUTE_PLANS)));
             oos.writeObject(planes);
+            oos.close();
+
+            oos = new ObjectOutputStream(new FileOutputStream(new File(ROUTE_PARENTS)));
+            oos.writeObject(parents);
             oos.close();
 
         } catch (Exception e) {
