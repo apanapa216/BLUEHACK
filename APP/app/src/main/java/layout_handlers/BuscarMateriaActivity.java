@@ -1,4 +1,4 @@
-package dan_art.sknowcoin.layout_handlers;
+package Layout_Handlers;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,6 +14,7 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
+import Model.Plain;
 import dan_art.sknowcoin.R;
 import dan_art.sknowcoin.modelo.SKnowCoinApp;
 import dan_art.sknowcoin.modelo.Tutoria;
@@ -26,7 +27,7 @@ import dan_art.sknowcoin.modelo.Tutoria;
 public class BuscarMateriaActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    private ArrayList<Tutoria> tutoriasMaterias = new ArrayList<>();
+    private ArrayList<Plain> tutoriasMaterias = new ArrayList<>();
 
     private AdaptadorMateriaBuscada adaptadorMaterias;
     private ListView listaMaterias;

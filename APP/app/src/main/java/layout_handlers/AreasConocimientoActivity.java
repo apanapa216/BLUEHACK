@@ -1,8 +1,7 @@
-package dan_art.sknowcoin.layout_handlers;
+package Layout_Handlers;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -12,14 +11,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.jorgemoreno971.segurobolivarapp.R;
+
 import java.util.ArrayList;
 
-import dan_art.sknowcoin.R;
-
-
-/**
- * Created by dan_a on 04/05/2017.
- */
 
 public class AreasConocimientoActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -35,10 +30,10 @@ public class AreasConocimientoActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout_areas);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
-        toggle.syncState();
+        //ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+          //      this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        //drawer.setDrawerListener(toggle);
+        //toggle.syncState();
 
         Intent intent = getIntent();
     }// on create
@@ -49,8 +44,8 @@ public class AreasConocimientoActivity extends AppCompatActivity
     }// on click botones
 
     public void iniciarBusqueda (View v){
-        Intent intent = new Intent(this, BuscarMateriaActivity.class);
-        startActivity(intent);
+        //Intent intent = new Intent(this, dan_art.sknowcoin.layout_handlers.BuscarMateriaActivity.class);
+        //startActivity(intent);
     }// on click botones
 
     @Override
@@ -99,13 +94,13 @@ public class AreasConocimientoActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_home) {
-            Intent intent = new Intent(this, HomeActivity.class);
-            startActivity(intent);
+           // Intent intent = new Intent(this, HomeActivity.class);
+           // startActivity(intent);
         } else if (id == R.id.nav_edit_profile) {
 
         } else if (id == R.id.nav_materias) {
-            Intent intent = new Intent(this, BuscarMateriaActivity.class);
-            startActivity(intent);
+            //Intent intent = new Intent(this, dan_art.sknowcoin.layout_handlers.BuscarMateriaActivity.class);
+            //startActivity(intent);
         } else if (id == R.id.nav_buscar_tutor) {
 
         } else if (id == R.id.nav_top_mensual) {
