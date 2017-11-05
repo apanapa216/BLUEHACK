@@ -1,10 +1,9 @@
-package dan_art.sknowcoin.layout_handlers;
+package Layout_Handlers;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -14,13 +13,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
 
+import com.jorgemoreno971.segurobolivarapp.R;
+
 import java.util.ArrayList;
 import java.util.HashSet;
 
-import dan_art.sknowcoin.R;
-import dan_art.sknowcoin.modelo.PublicacionesUsuario;
-import dan_art.sknowcoin.modelo.SKnowCoinApp;
-import dan_art.sknowcoin.modelo.Tutoria;
+import Model.Plain;
 
 
 /**
@@ -33,15 +31,14 @@ public class TutoriasSolicitadasActivity extends AppCompatActivity
     private static final String TAG = "TutorSolicitadasEstudiante";
     public final static String USUARIO_PREFERENCES = "USUARIO_PREFERENCES";
 
-    private ArrayList<Tutoria> tutoriasSolicitadas = new ArrayList<>();
+    private ArrayList<Plain> tutoriasSolicitadas = new ArrayList<>();
 
     private AdaptadorHomeTutor adaptadorTutoriasSolicitadas;
     private ListView listaTutoriasSolicitadas;
 
     private SharedPreferences preferences;
 
-    private SKnowCoinApp sKnowCoinApp;
-    private HashSet<PublicacionesUsuario> publicacionesUsuario;
+    //private SKnowCoinApp sKnowCoinApp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,7 +57,7 @@ public class TutoriasSolicitadasActivity extends AppCompatActivity
         });//*/
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout_tutorias_solicitadas);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+        /*ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
@@ -71,10 +68,10 @@ public class TutoriasSolicitadasActivity extends AppCompatActivity
         sKnowCoinApp = new SKnowCoinApp();
 
         preferences = getSharedPreferences(USUARIO_PREFERENCES, Context.MODE_PRIVATE);
-
+*/
         String codigo = preferences.getString("codigo_usuario", "000");
 
-        publicacionesUsuario = sKnowCoinApp.publicacionesUsuarioPorUsuario(codigo, this);
+  //      publicacionesUsuario = sKnowCoinApp.publicacionesUsuarioPorUsuario(codigo, this);
 
         Intent intent = getIntent();
 
@@ -189,7 +186,7 @@ public class TutoriasSolicitadasActivity extends AppCompatActivity
         return true;
     }
 
-    public ArrayList<Tutoria> getItemsHomeTutor() {
+    public ArrayList<Plain> getItemsHomeTutor() {
         return tutoriasSolicitadas;
     }
 
@@ -199,11 +196,11 @@ public class TutoriasSolicitadasActivity extends AppCompatActivity
         list_view_content();
     }
 
-    public void setTutorias(ArrayList<Tutoria> tuts) {
+    public void setTutorias(ArrayList<Plain> tuts) {
         tutoriasSolicitadas = tuts;
         list_view_content();
     }
-
+/*
     public void setPublicacionesUsuario(HashSet<PublicacionesUsuario> publicacionesUsuario) {
         this.publicacionesUsuario = publicacionesUsuario;
 
@@ -216,4 +213,5 @@ public class TutoriasSolicitadasActivity extends AppCompatActivity
         sKnowCoinApp.tutoriasPorPublicacionesUsuario(ss, this);
 
     }
+    */
 }//home activity

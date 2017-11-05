@@ -1,4 +1,4 @@
-package dan_art.sknowcoin.layout_handlers;
+package Layout_Handlers;
 
 import android.content.Context;
 import android.content.Intent;
@@ -12,9 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import dan_art.sknowcoin.R;
-import dan_art.sknowcoin.modelo.SKnowCoinApp;
-import dan_art.sknowcoin.modelo.Usuario;
+import com.jorgemoreno971.segurobolivarapp.R;
 
 /**
  * Created by dan_a on 11/05/2017.
@@ -45,7 +43,6 @@ public class SingUpActivity_tres extends AppCompatActivity {
     private Button finalizarButton;
     private Button cancelarButton;
 
-    private SKnowCoinApp sKnowCoinApp;
 
     private SharedPreferences prefs;
 
@@ -68,8 +65,6 @@ public class SingUpActivity_tres extends AppCompatActivity {
         finalizarButton = (Button) findViewById(R.id.button_terminar_registro_basico);
         cancelarButton = (Button) findViewById(R.id.cancelar_registro);
 
-        sKnowCoinApp = new SKnowCoinApp();
-
         prefs = getSharedPreferences(USUARIO_PREFERENCES, Context.MODE_PRIVATE);
 
     }
@@ -81,26 +76,7 @@ public class SingUpActivity_tres extends AppCompatActivity {
         semestreActual = semestre.getText().toString();
 
         if ((!isEmpty(semestre)) && (!isEmpty(carrera)) && (!isEmpty(codigo))) {
-
-            Usuario usuario = new Usuario();
-            usuario.setRol(2);
-            usuario.setContrasena(constrasena);
-            usuario.setCorreo(correo);
-            usuario.setNombre(nombres);
-            usuario.setArea(carreraUniversitaria);
-            usuario.setCodigo(codigoEstudiante);
-            usuario.setSemestre(semestreActual);
-            usuario.setTelefono(telefono);
-
-            sKnowCoinApp.registrarUsuario(usuario, this);
-
-            SharedPreferences.Editor editor = prefs.edit();
-            editor.putString("codigo_usuario",usuario.getCodigo());
-            editor.putString("nombre_usuario", usuario.getNombre());
-            editor.commit();
-
-            Intent intent = new Intent(this, HomeActivity.class);
-            startActivity(intent);
+//
 
         } else {
             mostrarToast("Debes ingresar todos los datos");

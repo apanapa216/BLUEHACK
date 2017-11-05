@@ -1,4 +1,4 @@
-package dan_art.sknowcoin.layout_handlers;
+package Layout_Handlers;
 
 import android.content.Intent;
 import android.graphics.Typeface;
@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
     }//on create
 
     public void iniciarLogin() {
-        Intent intent = new Intent(this, LoginActivity.class);
-        startActivity(intent);
+        //Intent intent = new Intent(this, LoginActivity.class);
+        //startActivity(intent);
     }//iniciar juego
 }//Main Activity

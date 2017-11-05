@@ -1,4 +1,4 @@
-package dan_art.sknowcoin.layout_handlers;
+package Layout_Handlers;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,19 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.ValueEventListener;
 import com.jorgemoreno971.segurobolivarapp.R;
-
-import dan_art.sknowcoin.Firebase.Autenticacion;
-import dan_art.sknowcoin.Firebase.ConexionFirebase;
-import dan_art.sknowcoin.R;
-import dan_art.sknowcoin.modelo.Usuario;
-import dan_art.sknowcoin.modelo.copySKnowCoin;
 
 /**
  * Created by dan_a on 11/05/2017.

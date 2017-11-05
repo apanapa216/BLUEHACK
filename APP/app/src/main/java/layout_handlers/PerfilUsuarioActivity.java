@@ -1,4 +1,4 @@
-package dan_art.sknowcoin.layout_handlers;
+package Layout_Handlers;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,7 +10,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.ParcelFileDescriptor;
 import android.provider.MediaStore;
-import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -24,13 +23,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 
-import java.io.File;
+import com.jorgemoreno971.segurobolivarapp.R;
+
 import java.io.FileDescriptor;
 import java.io.IOException;
 
-import dan_art.sknowcoin.R;
-import dan_art.sknowcoin.modelo.SKnowCoinApp;
-import dan_art.sknowcoin.modelo.Usuario;
 
 public class PerfilUsuarioActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -43,9 +40,9 @@ public class PerfilUsuarioActivity extends AppCompatActivity
     private SharedPreferences prefs;
     private ImageView imageView;
 
-    private Usuario usuario;
+//    private Usuario usuario;
 
-    private SKnowCoinApp sKnowCoinApp;
+//    private SKnowCoinApp sKnowCoinApp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,13 +52,13 @@ public class PerfilUsuarioActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout_perfil_usuario);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
-        toggle.syncState();
+      //  ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+       //         this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        //drawer.setDrawerListener(toggle);
+        //toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view_perfil_usuario);
-        navigationView.setNavigationItemSelectedListener(this);
+   //     NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view_perfil_usuario);
+     //   navigationView.setNavigationItemSelectedListener(this);
         /*FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,18 +70,12 @@ public class PerfilUsuarioActivity extends AppCompatActivity
 
         imageView = (ImageView) findViewById(R.id.imageView2);
 
-        sKnowCoinApp = new SKnowCoinApp();
+        //sKnowCoinApp = new SKnowCoinApp();
         prefs = getSharedPreferences(USUARIO_PREFERENCES, Context.MODE_PRIVATE);
 
         String nombreImagen = prefs.getString("nombre_imagen", "iii");
         String codigo = prefs.getString("codigo_usuario", "000");
 
-        if (!nombreImagen.matches("iii") && !codigo.matches("000")) {
-
-            File fotoFile = sKnowCoinApp.setFotoPerfil(codigo, nombreImagen);
-            Uri uri = Uri.fromFile(fotoFile);
-            imageView.setImageURI(uri);
-        }
 
         inicializarComponentes();
         inicializarInfo();
@@ -97,24 +88,12 @@ public class PerfilUsuarioActivity extends AppCompatActivity
 
         if (codigo != "000") {
 
-            usuario = sKnowCoinApp.getUsuarioPorCodigo(codigo, this);
+//            usuario = sKnowCoinApp.getUsuarioPorCodigo(codigo, this);
 
         }
 
     }
 
-    public void pintarInfoUsuario(Usuario us) {
-
-        usuario = us;
-
-        editText_Semestre.setText(usuario.getSemestre());
-        editText_Area.setText(usuario.getArea());
-        editText_Telefono.setText(usuario.getTelefono());
-        editText_Correo.setText(usuario.getCorreo());
-        editText_Codigo.setText(usuario.getCodigo());
-        editText_Nombre.setText(usuario.getNombre());
-
-    }
 
     private void inicializarComponentes() {
 
@@ -149,14 +128,6 @@ public class PerfilUsuarioActivity extends AppCompatActivity
             buttonEditar.setText("Guardar");
         } else {
             buttonEditar.setText("Editar");
-
-            usuario.setSemestre(editText_Semestre.getText().toString());
-            usuario.setArea(editText_Area.getText().toString());
-            usuario.setTelefono(editText_Telefono.getText().toString());
-            usuario.setCorreo(editText_Correo.getText().toString());
-            usuario.setNombre(editText_Nombre.getText().toString());
-
-            sKnowCoinApp.mergeUsuario(usuario);
 
         }
     }
@@ -195,7 +166,6 @@ public class PerfilUsuarioActivity extends AppCompatActivity
             }
             String codigo = prefs.getString("codigo_usuario", "000");
 
-            sKnowCoinApp.subirFotoPerfil(codigo, selectedImage);
 
             Log.i("INFO: ", selectedImage.getLastPathSegment());
 
@@ -245,7 +215,7 @@ public class PerfilUsuarioActivity extends AppCompatActivity
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
-    @Override
+
     public boolean onNavigationItemSelected(MenuItem item) {
 
         /*TextView tv = (TextView) findViewById(R.id.userName_MenuEstud);
@@ -272,8 +242,8 @@ public class PerfilUsuarioActivity extends AppCompatActivity
         } else if (id == R.id.nav_top_mensual) {
 
         } else if (id == R.id.nav_tutorias_solicitadas) {
-            Intent intent = new Intent(this, TutoriasSolicitadasActivity.class);
-            startActivity(intent);
+//            Intent intent = new Intent(this, TutoriasSolicitadasActivity.class);
+ //           startActivity(intent);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout_perfil_usuario);

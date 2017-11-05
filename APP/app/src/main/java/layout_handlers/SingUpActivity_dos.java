@@ -1,4 +1,4 @@
-package dan_art.sknowcoin.layout_handlers;
+package Layout_Handlers;
 
 import android.content.Context;
 import android.content.Intent;
@@ -9,8 +9,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import dan_art.sknowcoin.R;
-import dan_art.sknowcoin.modelo.SKnowCoinApp;
+import com.jorgemoreno971.segurobolivarapp.R;
+
 
 /**
  * Created by dan_a on 11/05/2017.
@@ -30,7 +30,7 @@ public class SingUpActivity_dos extends AppCompatActivity {
     private Button continuarButton;
     private Button atrasButton;
 
-    private SKnowCoinApp sKnowCoinApp;
+   // private SKnowCoinApp sKnowCoinApp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,8 +48,6 @@ public class SingUpActivity_dos extends AppCompatActivity {
         continuarButton = (Button) findViewById(R.id.button_continuar_registro);
         atrasButton = (Button) findViewById(R.id.atras_registro);
 
-        sKnowCoinApp = new SKnowCoinApp();
-
     }
 
     public void clickContinuarRegistroDos(View v) {
@@ -59,12 +57,12 @@ public class SingUpActivity_dos extends AppCompatActivity {
         String nombreCompleto = nom + " " + ape;
 
         if ((!isEmpty(nombres)) && (!isEmpty(telefono)) && (!isEmpty(apellidos))) {
-            Intent intent = new Intent(this, SingUpActivity_tres.class);
-            intent.putExtra("CORREO", correo);
-            intent.putExtra("PASS", constrasena);
-            intent.putExtra("NOMBRES", nombreCompleto);
-            intent.putExtra("TELEFONO", tel);
-            startActivity(intent);
+//            Intent intent = new Intent(this, SingUpActivity_tres.class);
+  //          intent.putExtra("CORREO", correo);
+   //         intent.putExtra("PASS", constrasena);
+     //       intent.putExtra("NOMBRES", nombreCompleto);
+       //     intent.putExtra("TELEFONO", tel);
+         //   startActivity(intent);
         } else {
             mostrarToast("Debes ingresar todos los datos");
         }//no ha introducido los dastos pedidos
