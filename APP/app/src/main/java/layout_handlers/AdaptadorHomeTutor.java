@@ -13,6 +13,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.jorgemoreno971.segurobolivarapp.R;
+
 import java.util.ArrayList;
 
 import Model.Plain;
