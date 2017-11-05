@@ -1,12 +1,13 @@
 package Model;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * Created by jormo on 5/11/2017.
  */
 
-public class Parent {
+public class Parent implements Serializable {
 
     private String relacion;
     private String nombres;

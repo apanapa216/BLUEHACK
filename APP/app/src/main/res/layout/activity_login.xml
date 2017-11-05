@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/intro_bg">
+
+    <ImageView
+        android:id="@+id/logo_login"
+        android:layout_width="220dp"
+        android:layout_height="160dp"
+        app:srcCompat="@drawable/logo"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"/>
+
+        <Button
+        style="@style/boton_opacidad"
+        android:id="@+id/iniciar_registro_enLogin"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/boton_circular"
+        android:text="@string/txt_btn_ir_registro"
+        android:layout_marginBottom="31dp"
+        android:onClick="iniciarRegistro"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/button_login" />
+
+    <Button
+        style="@style/boton_resaltado"
+        android:id="@+id/button_login"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/boton_circular_resaltado"
+        android:text="@string/txt_btn_entrar"
+        android:onClick="clickLogin"
+        android:layout_above="@+id/iniciar_registro_enLogin"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/descriptionText"
+        style="@style/Descripcion_inicio"
+        android:layout_width="260dp"
+        android:layout_height="wrap_content"
+        android:inputType="none"
+        android:text="@string/descripcion_login"
+        android:layout_below="@+id/logo_login"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:background="@drawable/input_text_circular"
+        style="@style/input_text_inicio"
+        android:id="@+id/editText_correo"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:inputType="textEmailAddress"
+        android:layout_marginBottom="16dp"
+        android:hint="@string/texto_correo"
+        android:layout_below="@+id/descriptionText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="26dp" />
+
+    <EditText
+        android:background="@drawable/input_text_circular"
+        style="@style/input_text_inicio"
+        android:hint="@string/texto_contrasena"
+        android:id="@+id/editText_contrasena"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:layout_below="@+id/editText_correo"
+        android:layout_alignStart="@+id/editText_correo" />
+
+</RelativeLayout>

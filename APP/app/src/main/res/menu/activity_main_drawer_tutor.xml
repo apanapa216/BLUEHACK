@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/colorGreyDark">
+
+    <item android:title="Perfil">
+        <menu>
+            <item
+                android:id="@+id/nav_edit_tuto_profile"
+                style="@style/texto_menu_naranja"
+                android:icon="@drawable/ic_pencil"
+                android:title="@string/texto_editar_perfil" />
+            <item
+                android:id="@+id/nav_cambiar_a_estudiante"
+                style="@style/texto_menu_naranja"
+                android:icon="@drawable/ic_eyeglasses"
+                android:title="@string/texto_perfil_estudiante" />
+        </menu>
+    </item>
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home_tutor"
+            style="@style/texto_menu_naranja"
+            android:icon="@drawable/ic_home"
+            android:title="@string/texto_home" />
+        <item
+            android:id="@+id/nav_crear_tutorias"
+            android:icon="@drawable/ic_add"
+            android:title="@string/texto_crear_tutoria" />
+        <item
+            android:id="@+id/nav_solicitudes"
+            android:icon="@drawable/ic_teacher"
+            android:title="@string/texto_solicitudes" />
+        <item
+            android:id="@+id/nav_mis_tutorias"
+            android:icon="@drawable/ic_list"
+            android:title="@string/texto_mis_tutorias" />
+        <item
+            android:id="@+id/nav_estadisticas"
+            android:icon="@drawable/ic_stats"
+            android:title="@string/texto_estadisticas" />
+    </group>
+
+    <item android:title="Aplicación">
+        <menu>
+            <item
+                android:id="@+id/nav_config"
+                android:icon="@drawable/ic_tuerca"
+                android:title="@string/texto_configuracion" />
+            <item
+                android:id="@+id/nav_ayuda"
+                android:icon="@drawable/ic_question"
+                android:title="@string/texto_ayuda" />
+            <item
+                android:id="@+id/nav_info"
+                android:icon="@drawable/ic_info"
+                android:title="@string/texto_informacion" />
+        </menu>
+    </item>
+
+</menu>
+

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/dark_bg">
+
+    <ImageView
+        android:id="@+id/logo_singup_dos"
+        android:layout_width="220dp"
+        android:layout_height="160dp"
+        app:srcCompat="@drawable/logo"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"/>
+
+        <Button
+        style="@style/boton_opacidad"
+        android:id="@+id/cancelar_registro"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/boton_circular"
+        android:text="@string/txt_btn_cancelar"
+        android:layout_marginBottom="41dp"
+        android:onClick="clickAtrasRegistro"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/button_terminar_registro_basico" />
+
+    <Button
+        style="@style/boton_resaltado"
+        android:id="@+id/button_terminar_registro_basico"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/boton_circular_resaltado"
+        android:text="@string/txt_btn_finalizar_registro"
+        android:onClick="clickContinuarRegistro"
+        android:layout_above="@+id/cancelar_registro"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/descriptionText"
+        style="@style/titulo_blanco_regular"
+        android:layout_width="260dp"
+        android:layout_height="wrap_content"
+        android:inputType="none"
+        android:text="@string/titulo_registro"
+        android:layout_below="@+id/logo_singup_dos"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:background="@drawable/input_text_circular"
+        style="@style/input_text_inicio"
+        android:id="@+id/editText_cod_estudiante"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:inputType="textPersonName"
+        android:layout_marginBottom="12dp"
+        android:hint="@string/texto_codigo_estudiante"
+        android:layout_below="@+id/descriptionText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="26dp" />
+
+    <EditText
+        android:background="@drawable/input_text_circular"
+        style="@style/input_text_inicio"
+        android:hint="@string/texto_carrera"
+        android:id="@+id/editText_carrera"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:inputType="text"
+        android:layout_below="@+id/editText_cod_estudiante"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:id="@+id/editText_semestre"
+        style="@style/input_text_inicio"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:background="@drawable/input_text_circular"
+        android:ems="10"
+        android:hint="@string/texto_semestre_actual"
+        android:inputType="number"
+        android:layout_marginTop="12dp"
+        android:layout_below="@+id/editText_carrera"
+        android:layout_alignStart="@+id/editText_carrera" />
+
+    <TextView
+        style="@style/Descripcion_inicio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/estado_3_registro"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="11dp" />
+
+</RelativeLayout>

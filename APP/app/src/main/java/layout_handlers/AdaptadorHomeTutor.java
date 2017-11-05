@@ -1,4 +1,4 @@
-package dan_art.sknowcoin.layout_handlers;
+package layout_handlers;
 
 import android.app.Activity;
 import android.content.Context;
@@ -15,20 +15,19 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-import dan_art.sknowcoin.R;
-import dan_art.sknowcoin.modelo.Tutoria;
+import Model.Plain;
 
 /**
  * Created by dan_a on 17/05/2017.
  */
 
-public class AdaptadorHomeTutor extends ArrayAdapter<Tutoria> {
+public class AdaptadorHomeTutor extends ArrayAdapter<Plain> {
 
     Activity activity;
     Context context;
     int index;
 
-    public AdaptadorHomeTutor(Context context, ArrayList<Tutoria> tutorias, Activity activity) {
+    public AdaptadorHomeTutor(Context context, ArrayList<Plain> tutorias, Activity activity) {
         super(context, 0, tutorias);
         this.activity = activity;
         this.context = context;
@@ -37,7 +36,7 @@ public class AdaptadorHomeTutor extends ArrayAdapter<Tutoria> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         // Get the data item for this position
-        final Tutoria tutoria = getItem(position);
+        final Plain plain = getItem(position);
         index = position;
 
         // Check if an existing view is being reused, otherwise inflate the view
@@ -52,16 +51,14 @@ public class AdaptadorHomeTutor extends ArrayAdapter<Tutoria> {
         TextView tvHorario = (TextView) convertView.findViewById(R.id.tutDisp_horario_tutoria);
 
         // LLenar los viwes con el contenido del usuario
-        tvNombreUsuario.setText(tutoria.getNombreTutor());
-        tvRango.setText(tutoria.getMateria());
-        tvHorario.setText(tutoria.getHora());
+        tvNombreUsuario.setText(plain.getTitulo());
+        tvRango.setText(plain.getDescripcion());
+        tvHorario.setText(plain.getValor()+"");
 
-        String nivelPrueba = "1";
-        tvNivel.setText(nivelPrueba);
 
         ImageView imageView = (ImageView) convertView.findViewById(R.id.tutDisp_area);
 
-        String area = tutoria.getMateria();
+        String area = plain.getDescripcion();
         Bitmap bImage = null;
 
         switch (area) {
@@ -99,14 +96,10 @@ public class AdaptadorHomeTutor extends ArrayAdapter<Tutoria> {
         return convertView;
     }// view
 
-    private void mostrarDetalleTutoria(Tutoria tutoria) {
-
-        Intent intent = new Intent(activity, DetalleTutoriaActivity.class);
-        intent.putExtra("codigo_tutoria", tutoria.getId());
-
-        activity.startActivity(intent);
-
-
+    private void mostrarDetalleTutoria(Plain tutoria) {
+        // Intent intent = new Intent(activity, DetalleTutoriaActivity.class);
+        // intent.putExtra("codigo_tutoria", tutoria.getId());
+        // activity.startActivity(intent);
     }
 
     public void clicAdaptadorTutoriaDisponible(View v) {
