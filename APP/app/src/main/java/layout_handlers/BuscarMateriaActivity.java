@@ -2,7 +2,6 @@ package Layout_Handlers;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -12,12 +11,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
 
+import com.jorgemoreno971.segurobolivarapp.R;
+
 import java.util.ArrayList;
 
 import Model.Plain;
-import dan_art.sknowcoin.R;
-import dan_art.sknowcoin.modelo.SKnowCoinApp;
-import dan_art.sknowcoin.modelo.Tutoria;
 
 
 /**
